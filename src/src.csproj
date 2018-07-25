@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>PipServices.Redis</AssemblyName>
+    <RootNamespace>PipServices.Redis</RootNamespace>
+    <ApplicationIcon />
+    <Win32Resource />
+    <Version>3.0.0</Version>
+    <Authors>Sergey Seroukhov, Alex Mazur</Authors>
+    <Copyright>Conceptual Vision Consulting LLC. 2017-2018</Copyright>
+    <Description>Redis components for Pip.Services in .NET</Description>
+    <Company>Conceptual Vision Consulting LLC.</Company>
+    <Product>PipServices.Redis</Product>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/pip-services-dotnet/pip-services-redis-dotnet</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/pip-services/pip-services/master/design/Icon.png</PackageIconUrl>
+    <PackageTags>pip-services microservices framework</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="PipServices.Commons" Version="3.0.0" />
+    <PackageReference Include="PipServices.Components" Version="3.0.1" />
+    <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
+  </ItemGroup>
+</Project>
