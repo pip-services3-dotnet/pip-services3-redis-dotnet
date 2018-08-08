@@ -4,6 +4,7 @@
 /.dockerignore
 /doc
 /obj
+/dist
 /doc
 /docker
 /*.sh
