@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pip-services-redis-dotnet-benchmark
+spec:
+  template:
+    spec:
+      containers:
+      - name: pip-services-redis-dotnet-benchmark
+        image: devbootbarn.azurecr.io/pip-services-redis-dotnet-benchmark
+      restartPolicy: Never
+      imagePullSecrets:
+        - name: bb-registry-secret

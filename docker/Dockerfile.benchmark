@@ -1,0 +1,34 @@
+# Build stage
+FROM microsoft/dotnet:2.1-sdk AS build
+
+# set working directory
+WORKDIR /app
+
+# Copy Source
+COPY . .
+
+# Restore
+COPY src/src.csproj ./src/
+RUN dotnet restore src/src.csproj
+
+COPY Benchmark/Benchmark.csproj ./Benchmark/
+RUN dotnet restore Benchmark/Benchmark.csproj 
+
+# Publish
+RUN dotnet publish Benchmark/Benchmark.csproj  -o /obj
+
+# Runtime stage
+FROM microsoft/dotnet:2.1-sdk
+
+# set working directory
+WORKDIR /app
+
+# Copy compiled binaries
+COPY --from=build /obj ./bin
+
+ENV CACHE_HOST "10.0.192.249"
+ENV CACHE_PORT "6379"
+
+EXPOSE 8080
+
+CMD ["dotnet", "./bin/Benchmark.dll"]

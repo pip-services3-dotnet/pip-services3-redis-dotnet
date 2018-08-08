@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Benchmark": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "CACHE_HOST": "localhost",
+        "CACHE_PORT": "6379"
+      }
+    }
+  }
+}
