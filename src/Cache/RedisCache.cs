@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using PipServices.Commons.Config;
 using PipServices.Commons.Convert;
 using PipServices.Commons.Errors;
 using PipServices.Commons.Refer;
-using PipServices.Commons.Run;
 using PipServices.Components.Auth;
 using PipServices.Components.Cache;
 using PipServices.Components.Connect;
+
 using StackExchange.Redis;
 
 namespace PipServices.Redis.Cache
 {
-    public class RedisCache: ICache, IConfigurable, IReferenceable, IOpenable
+    public class RedisCache: AbstractCache
     {
         private ConnectionResolver _connectionResolver = new ConnectionResolver();
         private CredentialResolver _credentialResolver = new CredentialResolver();
@@ -27,8 +28,10 @@ namespace PipServices.Redis.Cache
         {
         }
 
-        public void Configure(ConfigParams config)
+        public override void Configure(ConfigParams config)
         {
+            base.Configure(config);
+
             _connectionResolver.Configure(config);
             _credentialResolver.Configure(config);
 
@@ -37,18 +40,18 @@ namespace PipServices.Redis.Cache
             _retries = config.GetAsIntegerWithDefault("options.retries", _retries);
         }
 
-        public void SetReferences(IReferences references)
+        public override void SetReferences(IReferences references)
         {
             _connectionResolver.SetReferences(references);
             _credentialResolver.SetReferences(references);
         }
 
-        public bool IsOpen()
+        public override bool IsOpen()
         {
             return _client != null;
         }
 
-        public async Task OpenAsync(string correlationId)
+        public override async Task OpenAsync(string correlationId)
         {
             var connection = await _connectionResolver.ResolveAsync(correlationId);
             if (connection == null)
@@ -82,7 +85,7 @@ namespace PipServices.Redis.Cache
             _database = _client.GetDatabase();
         }
 
-        public async Task CloseAsync(string correlationId)
+        public override async Task CloseAsync(string correlationId)
         {
             if (_client != null)
             {
@@ -98,7 +101,7 @@ namespace PipServices.Redis.Cache
                 throw new InvalidStateException(correlationId, "NOT_OPENED", "Connection is not opened");
         }
 
-        public async Task<T> RetrieveAsync<T>(string correlationId, string key)
+        public override async Task<T> RetrieveAsync<T>(string correlationId, string key)
         {
             CheckOpened(correlationId);
 
@@ -108,9 +111,11 @@ namespace PipServices.Redis.Cache
             return value;
         }
 
-        public async Task<T> StoreAsync<T>(string correlationId, string key, T value, long timeout)
+        public override async Task<T> StoreAsync<T>(string correlationId, string key, T value, long timeout)
         {
             CheckOpened(correlationId);
+
+            timeout = timeout > 0 ? timeout : Timeout;
 
             var json = JsonConverter.ToJson(value);
             var result = await _database.StringSetAsync(key, json, TimeSpan.FromMilliseconds(timeout));
@@ -118,7 +123,7 @@ namespace PipServices.Redis.Cache
             return result ? value : default(T);
         }
 
-        public async Task RemoveAsync(string correlationId, string key)
+        public override async Task RemoveAsync(string correlationId, string key)
         {
             CheckOpened(correlationId);
 
