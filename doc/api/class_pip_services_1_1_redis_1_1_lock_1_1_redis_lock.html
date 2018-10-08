@@ -157,10 +157,23 @@ IDatabase&#160;</td><td class="memItemRight" valign="bottom"><b>_database</b> = 
 <div class="textblock"><p>Distributed lock that is implemented based on <a class="el" href="namespace_pip_services_1_1_redis.html">Redis</a> in-memory database. </p>
 <h3>Configuration parameters</h3>
 <p>connection(s): <br />
-discovery_key: (optional) a key to retrieve the connection from IDiscovery host: host name or IP address port: port number uri: resource URI or connection string with all parameters in it credential(s): store_key: key to retrieve parameters from credential store username: user name(currently is not used) password: user password options: retry_timeout: timeout in milliseconds to retry lock acquisition. (Default: 100) retries: number of retries(default: 3)</p>
+- discovery_key: (optional) a key to retrieve the connection from <a href="https://rawgit.com/pip-services-dotnet/pip-services-components-dotnet/master/doc/api/interface_pip_services_1_1_components_1_1_connect_1_1_i_discovery.html">IDiscovery</a></p><ul>
+<li>host: host name or IP address</li>
+<li>port: port number</li>
+<li>uri: resource URI or connection string with all parameters in it</li>
+</ul>
+<p>credential(s):</p><ul>
+<li>store_key: key to retrieve parameters from credential store</li>
+<li>username: user name(currently is not used)</li>
+<li>password: user password</li>
+</ul>
+<p>options:</p><ul>
+<li>retry_timeout: timeout in milliseconds to retry lock acquisition. (Default: 100)</li>
+<li>retries: number of retries(default: 3)</li>
+</ul>
 <h3>References</h3>
 <ul>
-<li>*:discovery:*:*:1.0 (optional) IDiscovery services to resolve connection</li>
+<li>*:discovery:*:*:1.0 (optional) <a href="https://rawgit.com/pip-services-dotnet/pip-services-components-dotnet/master/doc/api/interface_pip_services_1_1_components_1_1_connect_1_1_i_discovery.html">IDiscovery</a> services to resolve connection</li>
 <li>*:credential-store:*:*:1.0 (optional) Credential stores to resolve credential </li>
 </ul>
 <div class="fragment"><div class="line">var lock = <span class="keyword">new</span> RedisLock();</div><div class="line">lock.configure(ConfigParams.FromTuples(</div><div class="line"><span class="stringliteral">&quot;host&quot;</span>, <span class="stringliteral">&quot;localhost&quot;</span>,</div><div class="line"><span class="stringliteral">&quot;port&quot;</span>, 6379 ));</div><div class="line"></div><div class="line">lock.Open(<span class="stringliteral">&quot;123&quot;</span>);</div><div class="line"></div><div class="line">lock.TryAcquireLock(<span class="stringliteral">&quot;123&quot;</span>, <span class="stringliteral">&quot;key1&quot;</span>, 0);</div><div class="line">lock.ReleaseLock(<span class="stringliteral">&quot;123&quot;</span>, <span class="stringliteral">&quot;key1&quot;</span>);</div></div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>

@@ -9,7 +9,8 @@ namespace PipServices.Redis.Build
     /// <summary>
     /// Creates Redis components by their descriptors.
     /// </summary>
-    /// See <see cref="RedisCache"/>, <see cref="RedisLock"/>
+    /// See <a href="https://rawgit.com/pip-services-dotnet/pip-services-redis-dotnet/master/doc/api/class_pip_services_1_1_redis_1_1_cache_1_1_redis_cache.html">RedisCache</a>, 
+    /// <a href="https://rawgit.com/pip-services-dotnet/pip-services-redis-dotnet/master/doc/api/class_pip_services_1_1_redis_1_1_lock_1_1_redis_lock.html">RedisLock</a>
     public class DefaultRedisFactory: Factory
     {
         public static readonly Descriptor Descriptor = new Descriptor("pip-services", "factory", "redis", "default", "1.0");
