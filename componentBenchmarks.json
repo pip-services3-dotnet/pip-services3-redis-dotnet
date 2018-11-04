@@ -1,7 +1,7 @@
 {
-    "name": "pip-services-redis-dotnet-benchmark",
-    "deployment": "pip-services-redis-dotnet-benchmark",
-    "image": "devbootbarn.azurecr.io/pip-services-redis-dotnet-benchmark",
+    "name": "pip-services3-redis-dotnet-benchmark",
+    "deployment": "pip-services3-redis-dotnet-benchmark",
+    "image": "devbootbarn.azurecr.io/pip-services3-redis-dotnet-benchmark",
     "version": "1.0.0",
     "build_number": "1"
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Benchmark.Data;
-using PipServices.Commons.Random;
+using PipServices3.Commons.Random;
 
 namespace Benchmark.Benchmark
 {

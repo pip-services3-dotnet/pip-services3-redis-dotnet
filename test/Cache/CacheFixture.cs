@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using PipServices.Components.Cache;
+using PipServices3.Components.Cache;
 using Xunit;
 
-namespace PipServices.Redis.Cache
+namespace PipServices3.Redis.Cache
 {
     public class CacheFixture
     {

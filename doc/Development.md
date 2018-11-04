@@ -26,7 +26,7 @@ you may need to install database servers:
 
 After your environment is ready you can check out source code from the Github repository:
 ```bash
-git clone git@github.com:pip-services-dotnet/pip-services-redis-dotnet.git
+git clone git@github.com:pip-services3-dotnet/pip-services3-redis-dotnet.git
 ```
 
 ## <a name="build"></a> Building
@@ -70,13 +70,13 @@ Update release notes in CHANGELOG. Update version number and release details in 
 After that compile and test the project. Then create a nuget package:
 
 ```bash
-nuget pack pip-services-redis-dotnet.nuspec
+nuget pack pip-services3-redis-dotnet.nuspec
 ```
 
 Publish the package on nuget global repository
 
 ```bash
-nuget push PipServices.Redis.XXX.nupkg -Source https://www.nuget.org/api/v2/package
+nuget push PipServices3.Redis.XXX.nupkg -Source https://www.nuget.org/api/v2/package
 ```
 
 ## <a name="contrib"></a> Contributing

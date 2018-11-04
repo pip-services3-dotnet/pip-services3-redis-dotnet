@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>PipServices.Redis.Test</AssemblyName>
+    <AssemblyName>PipServices3.Redis.Test</AssemblyName>
 
-    <RootNamespace>PipServices.Redis</RootNamespace>
+    <RootNamespace>PipServices3.Redis</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

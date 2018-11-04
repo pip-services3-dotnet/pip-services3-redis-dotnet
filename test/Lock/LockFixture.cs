@@ -1,8 +1,8 @@
 ﻿using System;
-using PipServices.Components.Lock;
+using PipServices3.Components.Lock;
 using Xunit;
 
-namespace PipServices.Redis.Lock
+namespace PipServices3.Redis.Lock
 {
     public class LockFixture
     {

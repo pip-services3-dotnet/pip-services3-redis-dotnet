@@ -6,10 +6,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Benchmark.Data;
 using PipBenchmark;
-using PipServices.Commons.Config;
-using PipServices.Commons.Data;
-using PipServices.Commons.Random;
-using PipServices.Redis.Cache;
+using PipServices3.Commons.Config;
+using PipServices3.Commons.Data;
+using PipServices3.Commons.Random;
+using PipServices3.Redis.Cache;
 
 namespace Benchmark.Benchmark
 {

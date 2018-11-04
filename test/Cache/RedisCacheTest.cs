@@ -1,9 +1,9 @@
 ﻿using System;
-using PipServices.Commons.Config;
-using PipServices.Commons.Convert;
+using PipServices3.Commons.Config;
+using PipServices3.Commons.Convert;
 using Xunit;
 
-namespace PipServices.Redis.Cache
+namespace PipServices3.Redis.Cache
 {
     [Collection("Sequential")]
     public class RedisCacheTest: IDisposable
