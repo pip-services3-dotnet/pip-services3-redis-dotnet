@@ -13,9 +13,12 @@ namespace PipServices3.Redis.Build
     /// <a href="https://rawgit.com/pip-services3-dotnet/pip-services3-redis-dotnet/master/doc/api/class_pip_services_1_1_redis_1_1_lock_1_1_redis_lock.html">RedisLock</a>
     public class DefaultRedisFactory: Factory
     {
-        public static readonly Descriptor Descriptor = new Descriptor("pip-services3", "factory", "redis", "default", "1.0");
-        public static readonly Descriptor RedisCacheDescriptor = new Descriptor("pip-services3", "cache", "redis", "*", "1.0");
-        public static readonly Descriptor RedisLockDescriptor = new Descriptor("pip-services3", "lock", "redis", "*", "1.0");
+        public static readonly Descriptor Descriptor = new Descriptor("pip-services", "factory", "redis", "default", "1.0");
+        public static readonly Descriptor Descriptor3 = new Descriptor("pip-services3", "factory", "redis", "default", "1.0");
+        public static readonly Descriptor RedisCacheDescriptor = new Descriptor("pip-services", "cache", "redis", "*", "1.0");
+        public static readonly Descriptor RedisCache3Descriptor = new Descriptor("pip-services3", "cache", "redis", "*", "1.0");
+        public static readonly Descriptor RedisLockDescriptor = new Descriptor("pip-services", "lock", "redis", "*", "1.0");
+        public static readonly Descriptor RedisLock3Descriptor = new Descriptor("pip-services3", "lock", "redis", "*", "1.0");
 
         /// <summary>
         /// Create a new instance of the factory.
@@ -23,7 +26,9 @@ namespace PipServices3.Redis.Build
         public DefaultRedisFactory()
         {
             RegisterAsType(DefaultRedisFactory.RedisCacheDescriptor, typeof(RedisCache));
+            RegisterAsType(DefaultRedisFactory.RedisCache3Descriptor, typeof(RedisCache));
             RegisterAsType(DefaultRedisFactory.RedisLockDescriptor, typeof(RedisLock));
+            RegisterAsType(DefaultRedisFactory.RedisLock3Descriptor, typeof(RedisLock));
         }
     }
 }
