@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="PipBenchmark" Version="2.1.1" />
-    <PackageReference Include="PipServices3.Commons" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
