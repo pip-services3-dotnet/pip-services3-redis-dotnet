@@ -2,11 +2,11 @@
 /.git
 /.gitignore
 /.dockerignore
-/doc
-/obj
+/docs
 /dist
-/doc
-/docker
+/obj
+/docker/Dockerfile*
+/docker/docker-compose*.yml
 /*.sh
 /*.ps1
 /*.nuspec
