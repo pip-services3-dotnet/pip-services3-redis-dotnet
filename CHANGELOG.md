@@ -1,4 +1,4 @@
-# Redis components for Pip.Services in .NET Changelog
+# <img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> <br/> Redis components for .NET Changelog
 
 ## <a name="3.1.1"></a> 3.1.1 (2020-06-29)
 
@@ -16,24 +16,14 @@
 * Moved to a separate package
 * Added 'pip-services' descriptors
 
-## <a name="1.1.0-1.1.32"></a> 1.1.0-1.1.32 (2018-07-23)
-
-* Moved MockDb persistence to PipServices3.Data
-
-### Features
-* **cache** Added Memcached and Redis clients
-* **mongodb** Integrated with projections
-* **prometheus** Added PrometheusCounters and PrometheusMetrisService
-
-## <a name="1.0.0"></a> 1.0.0 (2018-03-21)
+## <a name="3.0.0"></a> 3.0.0 (2018-07-13)
 
 Initial public release
 
 ### Features
-* **mongodb** Added MongoDbConnectionResolver
-* **mongodb** Added MongoDbPersistence
-* **mongodb** Added IdentifiableMongoDbPersistence
-* **elasticsearch** Added ElasticSearchLogger
+*  Added DefaultRedisFactory
+*  Added RedisCache
+*  Added RedisLock
 
 ### Bug Fixes
 No fixes in this version
