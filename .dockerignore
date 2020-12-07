@@ -3,13 +3,14 @@
 /.gitignore
 /.dockerignore
 /doc
-/obj
 /dist
-/doc
-/docker
+/obj
+/Dockerfile*
+/docker-compose*.yml
 /*.sh
 /*.ps1
 /*.nuspec
 /*.nupkg
 /*.userprefs
 /*.md
+/.github
